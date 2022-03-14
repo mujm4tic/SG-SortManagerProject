@@ -31,3 +31,9 @@ Additional features for continuous improvement:
 - Logging
 - Generic Sorts (Consider interaction with a suitable interface)
 - Good code structure in accordance with design patterns (refactoring)
+
+
+### More Information
+
+This repository contains a main, dev, and feature branch. Features a created and uploaded to the dev branch, then at the end
+of the project will be uploaded to the main branch.
