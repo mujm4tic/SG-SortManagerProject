@@ -3,65 +3,100 @@ package com.sparta.mm.sortalgorithms.binarytree;
 //have the node method separate from the functions within it
 // because of the interface requirement. One class should interface all those methods
 
-public class BinaryTree{
+public class BinaryTree implements BinaryMethods {
+
     private final Node rootNode;
 
-    //have a method to print array so they can choose a root node
-
-
-    //interface for root node - display array and choose node starting value
-    public void chooseRootNode(final int element){
-//        rootNode
-    }
-    public BinaryTree(final int element){
-        rootNode = new Node(element); //start point set to zero for rannge -1000 to 1000
+    public BinaryTree(final int element) {
+        rootNode = new Node(element);
     }
 
-    //interface for find node
-    public boolean findElement(int value){
-        Node node = findNode(value);
-        if (node != null){
-            return true;
-        } else return false;
-        //anything user interacting with, using value instead of element
+    @Override
+    public int getRootElement() {
+        return 0;
     }
 
-    private Node findNode(int element){
-        Node node = rootNode;
-        while (node!=null){
-            if (element == node.getValue()){
-                return node;
-            }
-        }   if (element < node.getValue()){
-            node = node.getLeftChild();
-        } else {
-            node = node.getRightChild();
-        } return null;
+    //logic -- choose root element
 
+
+    @Override
+    public int getNumberOfElements() {
+        return 0;
     }
 
-    //interface for add node to tree
-    public void addElement(final int value){
-        addNodeToTree(rootNode, value);
+    @Override
+    public void addElement(int element) {
+        
     }
 
-    private void addNodeToTree(Node node, int element){ //want no one to see nodes, just value
-        if (element <= node.getValue()){
-            if (node.isLeftChildEmpty()){
-                Node leftChild = new Node(element);
-                node.setLeftChild(leftChild);
+    @Override
+    public void addElements(int[] elements) {
+        for (int number : elements){
+            addNodeToTree(rootNode, number);
+        }
+    }
+
+    //logic
+    private void addNodeToTree(Node node, int element) {
+        if (element <= node.getValue()) {
+            if (node.isLeftChildEmpty()) {
+                node.setLeftChild(new Node(element));
             } else {
                 addNodeToTree(node.getLeftChild(), element);
             }
-        } else if (element > node.getValue()){
-            if (node.isRightChildEmpty()){
-                Node rightChild = new Node(element);
-                node.setRightChild(rightChild);
-            } else{
-                addNodeToTree(node.getRightChild(),element);
+        } else if (element > node.getValue()) {
+            if (node.isRightChildEmpty()) {
+                node.setRightChild(new Node(element));
+            } else {
+                addNodeToTree(node.getRightChild(), element);
             }
         }
     }
 
-    //return value not node
+    @Override
+    public boolean findElement(final int value) {
+        Node node = findNode(value);
+        if (node != null) {
+            return true;
+        }
+        return false;
+    }
+
+    //logic
+    private Node findNode(int element) {
+        Node node = rootNode;
+        while (node != null) {
+            if (element == node.getValue()) {
+                return node;
+            }
+            if (element < node.getValue()) {
+                node = node.getLeftChild();
+            } else {
+                node = node.getRightChild();
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public int getLeftChild(int element) throws ChildNotFoundException {
+        return 0;
+    }
+
+    @Override
+    public int getRightChild(int element) throws ChildNotFoundException {
+        return 0;
+    }
+
+    @Override
+    public int[] getSortedTreeAsc() {
+        return new int[0];
+    }
+
+    @Override
+    public int[] getSortedTreeDesc() {
+        return new int[0];
+    }
+
+
 }
