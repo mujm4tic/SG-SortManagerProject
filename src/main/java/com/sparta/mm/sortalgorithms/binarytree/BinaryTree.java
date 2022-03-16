@@ -3,12 +3,10 @@ package com.sparta.mm.sortalgorithms.binarytree;
 //have the node method separate from the functions within it
 // because of the interface requirement. One class should interface all those methods
 
-public class BinaryTree {
+public class BinaryTree{
     private final Node rootNode;
 
     //have a method to print array so they can choose a root node
-
-
 
 
     //interface for root node - display array and choose node starting value
@@ -66,6 +64,4 @@ public class BinaryTree {
     }
 
     //return value not node
-
-
 }

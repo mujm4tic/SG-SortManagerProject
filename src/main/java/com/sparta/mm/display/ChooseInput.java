@@ -8,7 +8,7 @@ public class ChooseInput {
 
     public static int choose() {
         System.out.println("Please enter the number of your desired array sorting type: " +
-                "1-Bubble, 2-Binary, or 3-Merge");
+                "1-Binary, 2-Bubble, or 3-Merge");
         int choice = scanner.nextInt();
         if (choice > 3 || choice < 1) {
             System.out.println("Sorry, invalid option");
