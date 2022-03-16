@@ -1,8 +1,8 @@
 package com.sparta.mm.initiators;
 
-import java.util.Scanner;
+import com.sparta.mm.display.ChooseInput;
 
-public class Main {
+public class App {
     //plug in Choose input
     public static void main(String[] args) {
 

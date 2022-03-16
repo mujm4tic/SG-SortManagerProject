@@ -13,9 +13,10 @@ public class RandomArray {
         } return randomArray;
     }
 
+    // get rid of this main eventually, one main only
     public static void main(String[] args) {
         int[] newArray = generateArray();
         System.out.println(Arrays.toString(newArray));
-        System.out.println(Array.getLength(newArray));
+        System.out.println("My array length is: " + Array.getLength(newArray));
     }
 }

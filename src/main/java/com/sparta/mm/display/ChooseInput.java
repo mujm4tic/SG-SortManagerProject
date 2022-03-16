@@ -1,4 +1,4 @@
-package com.sparta.mm.initiators;
+package com.sparta.mm.display;
 
 import java.util.Scanner;
 
