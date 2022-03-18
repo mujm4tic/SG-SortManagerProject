@@ -1,13 +1,11 @@
-package com.sparta.mm.sortalgorithms.bubblesort;
+package com.sparta.mm.sort_algorithms.bubblesort;
 
-import com.sparta.mm.display.MyArray;
-
-import static com.sparta.mm.display.MyArray.newArray;
+import com.sparta.mm.display.DisplayManager;
 
 public class BubbleMain  {
 
     public static void main(String[] args){
-        int[] randArr = MyArray.newArray;
+        int[] randArr = DisplayManager.newArray;
         BubbleSort rearrangedArr = new BubbleSort();
         randArr = rearrangedArr.sortArr(randArr);
         rearrangedArr.printArr(randArr);
