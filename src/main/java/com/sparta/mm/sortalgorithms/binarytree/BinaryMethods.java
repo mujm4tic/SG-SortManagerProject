@@ -1,5 +1,7 @@
 package com.sparta.mm.sortalgorithms.binarytree;
 
+import com.sparta.mm.exceptions.ChildNotFoundException;
+
 public interface BinaryMethods {
 
         int getRootElement();

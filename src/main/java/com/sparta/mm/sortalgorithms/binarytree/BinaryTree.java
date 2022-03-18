@@ -1,9 +1,9 @@
 package com.sparta.mm.sortalgorithms.binarytree;
 
-//have the node method separate from the functions within it
-// because of the interface requirement. One class should interface all those methods
-
+import com.sparta.mm.exceptions.ChildNotFoundException;
 import com.sparta.mm.sortalgorithms.RandomArray;
+
+//ONLY NEED ADD ELEMENT + GET ELEMENT
 
 public class BinaryTree implements BinaryMethods {
 
@@ -18,50 +18,49 @@ public class BinaryTree implements BinaryMethods {
     }
 
     //NESTED NODE CLASS
-    public class Node {
+    private static class Node {
 
         private final int value;
-        private Node leftChild;
-        private Node rightChild;
+        private static Node leftChild;
+        private static Node rightChild;
 
-        public Node(int value) {
+        private Node(int value) {
             this.value = value;
         }
 
-        public int getValue() {
+        private int getValue() {
             return value;
         }
 
-        public Node getLeftChild() {
+        private static Node getLeftChild() {
             return leftChild;
         }
 
-        public void setLeftChild(Node leftChild) {
+        private void setLeftChild(Node leftChild) {
             this.leftChild = leftChild;
         }
 
-        public Node getRightChild() {
+        private static Node getRightChild() {
             return rightChild;
         }
 
-        public void setRightChild(Node rightChild) {
+        private void setRightChild(Node rightChild) {
             this.rightChild = rightChild;
         }
 
-        public boolean isLeftChildEmpty() {
+        private boolean isLeftChildEmpty() {
             if (leftChild == null) {
                 return true;
             } else return false;
         }
 
-        public boolean isRightChildEmpty() {
+        private boolean isRightChildEmpty() {
             if (rightChild == null) {
                 return true;
             } else return false;
         }
 
     }
-
 
 
     @Override
@@ -131,20 +130,35 @@ public class BinaryTree implements BinaryMethods {
 
     @Override
     public int getLeftChild(int element) throws ChildNotFoundException {
-        return 0;
+        return Node.getLeftChild().getValue();
     }
 
     @Override
     public int getRightChild(int element) throws ChildNotFoundException {
-        return 0;
+        return Node.getRightChild().getValue();
     }
 
     @Override
     public int[] getSortedTreeAsc() {
-        return new int[0];
+        sortedTree = new int[countNodes];
+        sortNodeCount = 0;
+        sortTreeAsc(rootNode);
+        return sortedTree;
     }
 
-    //NOT NEEEDED BUT FOR THE VISUAL TREE, RIGHT? OTHERWISE NEED TO PUT INTO SORTED ARRAY
+    private void sortTreeAsc(Node node){
+        if (node.isLeftChildEmpty() == false){
+            sortTreeAsc(node.getLeftChild());
+        }
+        sortedTree[sortNodeCount] = node.getValue();
+        sortNodeCount++;
+
+        if(node.isRightChildEmpty() == false){
+            sortTreeAsc(node.getRightChild());
+        }
+    }
+
+    //ACSENDING AND DESCENDING NEED TESTING
     @Override
     public int[] getSortedTreeDesc() {
         sortedTree = new int[countNodes];
@@ -153,6 +167,7 @@ public class BinaryTree implements BinaryMethods {
         return sortedTree;
     }
 
+    //ASCENDING AND DESCENDING NEED TESTING
     private void sortTreeDesc(Node node){
         if (node.isRightChildEmpty() == false){
             sortTreeDesc(node.getRightChild());
@@ -164,7 +179,5 @@ public class BinaryTree implements BinaryMethods {
         if (node.isLeftChildEmpty() == false){
             sortTreeDesc(node.getLeftChild());
         }
-        sortedTree[sortNodeCount] = node.getValue();
-        sortNodeCount++;
     }
 }
