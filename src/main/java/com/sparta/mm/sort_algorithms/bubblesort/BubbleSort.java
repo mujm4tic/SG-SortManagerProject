@@ -1,4 +1,4 @@
-package com.sparta.mm.sortalgorithms.bubblesort;
+package com.sparta.mm.sort_algorithms.bubblesort;
 
 import java.util.Arrays;
 

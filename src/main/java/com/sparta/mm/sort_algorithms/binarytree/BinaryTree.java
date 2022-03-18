@@ -1,7 +1,10 @@
-package com.sparta.mm.sortalgorithms.binarytree;
+package com.sparta.mm.sort_algorithms.binarytree;
 
+import com.sparta.mm.display.Choices;
 import com.sparta.mm.exceptions.ChildNotFoundException;
-import com.sparta.mm.sortalgorithms.RandomArray;
+import com.sparta.mm.control_logic.RandomArray;
+
+import static com.sparta.mm.control_logic.RandomArray.getArray;
 
 //ONLY NEED ADD ELEMENT + GET ELEMENT
 
@@ -10,11 +13,13 @@ public class BinaryTree implements BinaryMethods {
     private final Node rootNode;
     private static int countNodes = 0;
     private static int sortNodeCount = 0;
-    private static int[] myArray = RandomArray.generateArrayBinary();
+    private static int[] myArray = getArray();
     private static int[] sortedTree;
 
-    public BinaryTree(final int element) {
-        rootNode = new Node(element);
+    public BinaryTree() {
+        rootNode = new Node(Choices.getRootNode());
+        addElements(myArray);
+        System.out.println();
     }
 
     //NESTED NODE CLASS
@@ -59,7 +64,6 @@ public class BinaryTree implements BinaryMethods {
                 return true;
             } else return false;
         }
-
     }
 
 

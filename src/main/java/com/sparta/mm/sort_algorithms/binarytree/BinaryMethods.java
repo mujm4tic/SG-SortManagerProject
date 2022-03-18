@@ -1,4 +1,4 @@
-package com.sparta.mm.sortalgorithms.binarytree;
+package com.sparta.mm.sort_algorithms.binarytree;
 
 import com.sparta.mm.exceptions.ChildNotFoundException;
 
