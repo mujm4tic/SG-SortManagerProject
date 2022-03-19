@@ -2,11 +2,11 @@ package com.sparta.mm.sort_algorithms.binarytree;
 
 import com.sparta.mm.display.Choices;
 import com.sparta.mm.exceptions.ChildNotFoundException;
-import com.sparta.mm.control_logic.RandomArray;
 
 import java.util.Arrays;
 
 import static com.sparta.mm.control_logic.RandomArray.getArray;
+import static com.sparta.mm.display.DisplayManager.printTimeTaken;
 
 //ONLY NEED ADD ELEMENT + GET ELEMENT
 
@@ -147,8 +147,11 @@ public class BinaryTree implements BinaryMethods {
     public int[] getSortedTreeAsc() {
         sortedTree = new int[countNodes];
         sortNodeCount = 0;
+        long startAsc = System.nanoTime();
         sortTreeAsc(rootNode);
         System.out.println("My sorted tree in ascending order is: " + Arrays.toString(sortedTree));
+        long endAsc = System.nanoTime();
+        printTimeTaken(startAsc, endAsc);
         return sortedTree;
     }
 
@@ -168,8 +171,11 @@ public class BinaryTree implements BinaryMethods {
     public int[] getSortedTreeDesc() {
         sortedTree = new int[countNodes];
         sortNodeCount = 0;
+        long startDesc = System.nanoTime();
         sortTreeDesc(rootNode);
         System.out.println("My sorted tree in descending order is: " + Arrays.toString(sortedTree));
+        long endDesc = System.nanoTime();
+        printTimeTaken(startDesc, endDesc);
         return sortedTree;
     }
 

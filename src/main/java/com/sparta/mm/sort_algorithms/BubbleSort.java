@@ -1,9 +1,11 @@
 package com.sparta.mm.sort_algorithms;
 
 import static com.sparta.mm.display.DisplayManager.printSortedAsc;
+import static com.sparta.mm.display.DisplayManager.printTimeTaken;
 
 public class BubbleSort {
     public static int[] getSortedArrayBubble(int[] newArray){
+        long start = System.nanoTime();
         boolean notSorted = true;
         int first;
         int second;
@@ -23,6 +25,8 @@ public class BubbleSort {
                 }
             }
         }  printSortedAsc(newArray);
+        long end = System.nanoTime();
+        printTimeTaken(start, end);
         return newArray;
     }
 }

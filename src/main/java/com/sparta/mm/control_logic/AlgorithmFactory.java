@@ -6,6 +6,7 @@ import com.sparta.mm.sort_algorithms.BubbleSort;
 
 import static com.sparta.mm.control_logic.RandomArray.getArray;
 import static com.sparta.mm.display.Choices.getBinaryChoice;
+import static com.sparta.mm.display.DisplayManager.printTimeTaken;
 import static com.sparta.mm.display.DisplayManager.printUnsorted;
 import static com.sparta.mm.sort_algorithms.binarytree.BinaryTree.myArray;
 
