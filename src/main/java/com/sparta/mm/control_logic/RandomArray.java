@@ -14,7 +14,8 @@ public class RandomArray {
             randomArray[i] = rand.nextInt(1001 - (-1000)) - 1000;
         }
         return randomArray;
-    }//nextInt bound max exclusive, min inclusive
+    }
+    //nextInt bound max exclusive, min inclusive
 }
 
 

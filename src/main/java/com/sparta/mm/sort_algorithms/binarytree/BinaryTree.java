@@ -4,22 +4,23 @@ import com.sparta.mm.display.Choices;
 import com.sparta.mm.exceptions.ChildNotFoundException;
 import com.sparta.mm.control_logic.RandomArray;
 
+import java.util.Arrays;
+
 import static com.sparta.mm.control_logic.RandomArray.getArray;
 
 //ONLY NEED ADD ELEMENT + GET ELEMENT
 
 public class BinaryTree implements BinaryMethods {
 
+    public static int[] myArray = getArray();
     private final Node rootNode;
     private static int countNodes = 0;
     private static int sortNodeCount = 0;
-    private static int[] myArray = getArray();
     private static int[] sortedTree;
 
     public BinaryTree() {
         rootNode = new Node(Choices.getRootNode());
         addElements(myArray);
-        System.out.println();
     }
 
     //NESTED NODE CLASS
@@ -147,6 +148,7 @@ public class BinaryTree implements BinaryMethods {
         sortedTree = new int[countNodes];
         sortNodeCount = 0;
         sortTreeAsc(rootNode);
+        System.out.println("My sorted tree in ascending order is: " + Arrays.toString(sortedTree));
         return sortedTree;
     }
 
@@ -162,16 +164,15 @@ public class BinaryTree implements BinaryMethods {
         }
     }
 
-    //ACSENDING AND DESCENDING NEED TESTING
     @Override
     public int[] getSortedTreeDesc() {
         sortedTree = new int[countNodes];
         sortNodeCount = 0;
         sortTreeDesc(rootNode);
+        System.out.println("My sorted tree in descending order is: " + Arrays.toString(sortedTree));
         return sortedTree;
     }
 
-    //ASCENDING AND DESCENDING NEED TESTING
     private void sortTreeDesc(Node node){
         if (node.isRightChildEmpty() == false){
             sortTreeDesc(node.getRightChild());
