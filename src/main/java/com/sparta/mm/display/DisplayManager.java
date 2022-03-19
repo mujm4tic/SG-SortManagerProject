@@ -2,13 +2,17 @@ package com.sparta.mm.display;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
-
-import static com.sparta.mm.control_logic.RandomArray.getArray;
+import com.sparta.mm.sort_algorithms.binarytree.BinaryTree;
 
 public class DisplayManager {
-
-//    public static void main(String[] args) {
-//        System.out.println(Arrays.toString(newArray));
-//        System.out.println("My array length is: " + Array.getLength(newArray));
-//    }
+    public static void printUnsorted(int[] array){
+        System.out.println("My array is: " + Arrays.toString(array));
+    }
+    public static void printSortedAsc(int[] sortedArray){
+        System.out.println("My new sorted array from smallest to biggest is: " + Arrays.toString(sortedArray));
+    }
+    public static void printSortedDesc(int[] sortedArray){
+        System.out.println("My new sorted array from biggest to smallest is: " + Arrays.toString(sortedArray));
+    }
 }
+
