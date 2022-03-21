@@ -6,10 +6,6 @@ Sort Manager project for Sparta Global SDET training (Engineering 107)
 An array sorting manager containing the following elements
 
 - BubbleSort
-- InsertionSort
-- MergeSort (iterative or recursive)
-- QuickSort
-- SelectionSort
 - BinaryTreeSort
 
 
@@ -27,6 +23,10 @@ You are required to test both the functionality of the program and the peformanc
 
  
 Additional features for continuous improvement:
+- InsertionSort
+- MergeSort (iterative or recursive)
+- QuickSort
+- SelectionSort
 - GUI
 - Logging
 - Generic Sorts (Consider interaction with a suitable interface)
