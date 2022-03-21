@@ -1,12 +1,9 @@
 package com.sparta.mm.control_logic;
 
-import com.sparta.mm.display.Choices;
 import com.sparta.mm.sort_algorithms.binarytree.BinaryTree;
 import com.sparta.mm.sort_algorithms.BubbleSort;
-
 import static com.sparta.mm.control_logic.RandomArray.getArray;
 import static com.sparta.mm.display.Choices.getBinaryChoice;
-import static com.sparta.mm.display.DisplayManager.printTimeTaken;
 import static com.sparta.mm.display.DisplayManager.printUnsorted;
 import static com.sparta.mm.sort_algorithms.binarytree.BinaryTree.myArray;
 
@@ -31,7 +28,7 @@ public class AlgorithmFactory {
         switch (choice){
             case 1:
                 BinaryTree newTreeA = new BinaryTree();
-                printUnsorted(myArray);
+                printUnsorted(myArray); //has node been added at this stage or not?
                 newTreeA.getSortedTreeAsc();
                 break;
             case 2:

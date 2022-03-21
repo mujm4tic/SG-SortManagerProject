@@ -2,13 +2,9 @@ package com.sparta.mm.sort_algorithms.binarytree;
 
 import com.sparta.mm.display.Choices;
 import com.sparta.mm.exceptions.ChildNotFoundException;
-
 import java.util.Arrays;
-
 import static com.sparta.mm.control_logic.RandomArray.getArray;
 import static com.sparta.mm.display.DisplayManager.printTimeTaken;
-
-//ONLY NEED ADD ELEMENT + GET ELEMENT
 
 public class BinaryTree implements BinaryMethods {
 
@@ -77,7 +73,7 @@ public class BinaryTree implements BinaryMethods {
     @Override
     public int getNumberOfElements() {
         return countNodes;
-    } //needs to happen after the addNode is called sequentially
+    }
 
     @Override
     public void addElement(int element) {
@@ -100,11 +96,11 @@ public class BinaryTree implements BinaryMethods {
                 addNodeToTree(node.getLeftChild(), element);
             }
         } else if (element > node.getValue()) {
-            if (node.isRightChildEmpty()) {
-                node.setRightChild(new Node(element));
-                countNodes++;
-            } else {
-                addNodeToTree(node.getRightChild(), element);
+                if (node.isRightChildEmpty()) {
+                    node.setRightChild(new Node(element));
+                    countNodes++;
+                } else {
+                    addNodeToTree(node.getRightChild(), element);
             }
         }
     }
@@ -145,7 +141,7 @@ public class BinaryTree implements BinaryMethods {
 
     @Override
     public int[] getSortedTreeAsc() {
-        sortedTree = new int[countNodes];
+        sortedTree = new int[getNumberOfElements()];
         sortNodeCount = 0;
         long startAsc = System.nanoTime();
         sortTreeAsc(rootNode);
@@ -180,14 +176,14 @@ public class BinaryTree implements BinaryMethods {
     }
 
     private void sortTreeDesc(Node node){
-        if (node.isRightChildEmpty() == false){
+        if (!node.isRightChildEmpty()){
             sortTreeDesc(node.getRightChild());
         }
 
         sortedTree[sortNodeCount] = node.getValue();
         sortNodeCount++;
 
-        if (node.isLeftChildEmpty() == false){
+        if (!node.isLeftChildEmpty()){
             sortTreeDesc(node.getLeftChild());
         }
     }
